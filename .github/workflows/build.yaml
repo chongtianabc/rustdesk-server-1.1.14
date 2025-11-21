@@ -60,7 +60,9 @@ jobs:
           command: build
           args: --release --all-features --target=${{ matrix.job.target }}
           use-cross: true 
-          cross-version: v0.2.4
+        env:
+          CARGO_TERM_COLOR: always
+          LATEST_TAG: v0.2.4
 
       - name: Exec chmod
         run: chmod -v a+x target/${{ matrix.job.target }}/release/*
@@ -102,7 +104,9 @@ jobs:
           command: build
           args: --release --all-features --target=x86_64-pc-windows-msvc
           use-cross: true
-          cross-version: v0.2.4
+        env:
+          CARGO_TERM_COLOR: always
+          LATEST_TAG: v0.2.4
 
       - name: Install NSIS
         run: |
